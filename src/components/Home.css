@@ -1,0 +1,222 @@
+/* Mekdela Amba Branding Colors */
+:root {
+  --mau-green: #1e401f;
+  --mau-gold: #d4af37;
+  --mau-light-gray: #f4f7f6;
+  --mau-white: #ffffff;
+}
+
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.home-nav {
+  background-color: var(--mau-green);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mau-logo {
+  background-color: var(--mau-gold);
+  color: var(--mau-green);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.uni-title {
+  display: block;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.lib-subtitle {
+  color: var(--mau-gold);
+  font-size: 12px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--mau-gold);
+}
+
+.signup-btn {
+  background-color: var(--mau-gold);
+  color: var(--mau-green) !important;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.home-hero {
+  background: linear-gradient(rgba(30, 64, 31, 0.8), rgba(30, 64, 31, 0.8)), 
+              url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--mau-gold);
+}
+
+.hero-content p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
+}
+
+.main-btn {
+  background-color: var(--mau-gold);
+  color: var(--mau-green);
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 15px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.secondary-btn {
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 13px 35px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.main-btn:hover { background-color: #b8941f; }
+.secondary-btn:hover { background: white; color: var(--mau-green); }
+
+/* Stats */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: -50px;
+  padding-bottom: 50px;
+}
+
+.stat-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--mau-green);
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+/* Services */
+.services-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--mau-light-gray);
+}
+
+.services-section h2 {
+  font-size: 36px;
+  color: var(--mau-green);
+  margin-bottom: 50px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.service-card .icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.home-footer {
+  background-color: var(--mau-green);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--mau-gold);
+  text-decoration: none;
+  font-size: 14px;
+}

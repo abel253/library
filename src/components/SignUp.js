@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './SignUp';
+import './SignUp.css'; // ensure this matches your CSS filename
+
 const SignUp = () => {
-  // 1. የኮሌጅ እና የዲፓርትመንት ዳታ ዝርዝር
   const collegeData = {
     "College of Computing and Informatics": [
       "Computer Science", 
@@ -51,27 +51,21 @@ const SignUp = () => {
   const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
-  // የኢንፑት ለውጦችን ለመቆጣጠር
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
     if (name === "college") {
-      // ኮሌጅ ሲቀየር ዲፓርትመንቱን ባዶ እናደርጋለን
-      setFormData({ 
-        ...formData, 
-        college: value, 
-        department: '' 
-      });
+      setFormData({ ...formData, college: value, department: '' });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     
-    // ቀላል ቫሊዴሽን
+    // 1. Basic Front-end Validation
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -87,40 +81,65 @@ const SignUp = () => {
       return;
     }
 
-    // Mock registration - እዚህ ጋር API መጠራት አለበት
-    setSuccess('Registration successful! Redirecting to login...');
-    setTimeout(() => {
-      navigate('/login');
-    }, 3000);
+    // 2. API Call to PHP
+    try {
+      const response = await fetch('http://localhost/library/auth.php?action=signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: formData.username, // Matches SQL 'user_id'
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          userType: formData.userType,
+          department: `${formData.college} - ${formData.department}` // Combines for SQL 'department'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSuccess('Registration successful! Redirecting to login...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2500);
+      } else {
+        // This catches errors like "Email already exists" from PHP
+        setError(data.error || 'Registration failed');
+      }
+    } catch (err) {
+      setError('Connection refused. Please ensure XAMPP/WAMP is running and the path is correct.');
+    }
   };
 
   return (
-     <div className="signup-container">
-    <div className="signup-card">
-      <div className="signup-header">
-        <h2>Create Account</h2>
-        <div className="divider"></div>
-        <p>Join the Library Circulation System</p>
-      </div>
-      
-      {error && <div className="alert-error">{error}</div>}
-      {success && <div className="alert-success">{success}</div>}
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label className="form-label">Full Name <span className="required-star">*</span></label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="form-input"
-            placeholder="John Doe"
-            required
-          />
+    <div className="signup-container">
+      <div className="signup-card">
+        <div className="signup-header">
+          <h2>Create Account</h2>
+          <div className="divider"></div>
+          <p>Join the Library Circulation System</p>
+        </div>
+        
+        {error && <div className="alert-error" style={{backgroundColor: '#fee2e2', color: '#b91c1c', padding: '10px', borderRadius: '5px', marginBottom: '10px'}}>{error}</div>}
+        {success && <div className="alert-success" style={{backgroundColor: '#d1fae5', color: '#065f46', padding: '10px', borderRadius: '5px', marginBottom: '10px'}}>{success}</div>}
+        
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Full Name <span className="required-star">*</span></label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="John Doe"
+              required
+            />
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
             <input
@@ -128,26 +147,23 @@ const SignUp = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
               placeholder="example@univ.edu.et"
               required
             />
           </div>
 
-          {/* Username */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Username / User ID</label>
             <input
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+              placeholder="e.g. S001"
               required
             />
           </div>
 
-          {/* Password */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -156,7 +172,6 @@ const SignUp = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 required
               />
             </div>
@@ -167,7 +182,6 @@ const SignUp = () => {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="w-full p-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 required
               />
             </div>
@@ -175,14 +189,12 @@ const SignUp = () => {
 
           <hr className="my-4 border-gray-200" />
 
-          {/* College Selection Dropdown */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">College Name</label>
             <select
               name="college"
               value={formData.college}
               onChange={handleChange}
-              className="w-full p-2.5 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-green-500 outline-none"
               required
             >
               <option value="">-- Select College --</option>
@@ -192,7 +204,6 @@ const SignUp = () => {
             </select>
           </div>
 
-          {/* Department Selection Dropdown */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
             <select
@@ -200,7 +211,7 @@ const SignUp = () => {
               value={formData.department}
               onChange={handleChange}
               disabled={!formData.college}
-              className={`w-full p-2.5 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-green-500 outline-none ${!formData.college ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}`}
+              className={!formData.college ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}
               required
             >
               <option value="">-- Select Department --</option>
@@ -210,28 +221,26 @@ const SignUp = () => {
             </select>
           </div>
 
-          {/* User Type */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Register As</label>
             <select
               name="userType"
               value={formData.userType}
               onChange={handleChange}
-              className="w-full p-2.5 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-green-500 outline-none"
             >
               <option value="Student">Student</option>
               <option value="Faculty">Faculty</option>
             </select>
           </div>
 
-           <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" style={{marginTop: '20px'}}>
             Create Account
           </button>
         </form>
 
-       <div className="login-link">
-        <p>Already have an account? <Link to="/login">Sign In here</Link></p>
-      </div>
+        <div className="login-link" style={{textAlign: 'center', marginTop: '15px'}}>
+          <p>Already have an account? <Link to="/login">Sign In here</Link></p>
+        </div>
       </div>
     </div>
   );

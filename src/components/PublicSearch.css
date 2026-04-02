@@ -1,86 +1,214 @@
-/* PublicSearch.css - ለህዝብ ፍለጋ ገጽ */
-.public-search {
-    min-height: 100vh;
-    background: #fef5e7;
+/* --- Mekdela Amba Colors --- */
+:root {
+  --mau-green: #1e401f;
+  --mau-gold: #d4af37;
+  --mau-gold-hover: #b8941f;
 }
 
-.search-header {
-    background: linear-gradient(135deg, #2c5e2e, #1e401f);
-    color: white;
-    padding: 2rem;
-    text-align: center;
+/* --- Navbar Styles --- */
+.mau-navbar {
+  background-color: var(--mau-green);
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.search-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.search-header p {
-    color: #d4af37;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.search-card {
-    background: white;
-    border-radius: 24px;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.logo-placeholder {
+  background-color: var(--mau-gold);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.search-form {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+.logo-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.search-form select {
-    padding: 12px 20px;
-    border: 2px solid #e5e7eb;
-    border-radius: 40px;
-    font-size: 14px;
-    background: white;
-    min-width: 120px;
+.uni-name {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.search-form input {
-    flex: 1;
-    padding: 12px 20px;
-    border: 2px solid #e5e7eb;
-    border-radius: 40px;
-    font-size: 14px;
+.lib-name {
+  color: var(--mau-gold);
+  font-size: 14px;
 }
 
-.search-form button {
-    background: linear-gradient(135deg, #d4af37, #b8941f);
-    color: #2c2c2c;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 40px;
-    font-weight: 700;
-    cursor: pointer;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.results-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.results-table th {
-    background: #f0e6d2;
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
-    color: #2c5e2e;
+.nav-btn {
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.results-table td {
-    padding: 12px;
-    border-bottom: 1px solid #e5e7eb;
+.nav-btn.login {
+  color: var(--mau-gold);
+  border: 1px solid var(--mau-gold);
 }
 
-.results-table tr:hover {
-    background: #fef9e6;
+.nav-btn.signup {
+  background-color: var(--mau-gold);
+  color: var(--mau-green);
+}
+
+.nav-btn.signup:hover {
+  background-color: var(--mau-gold-hover);
+}
+
+/* --- Hero Section --- */
+.library-hero {
+  background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
+}
+
+.hero-overlay {
+  background-color: rgba(30, 64, 31, 0.75); /* Dark green tint */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  color: var(--mau-gold);
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* --- Hero Search Box --- */
+.hero-search-form {
+  background: white;
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.search-select {
+  border: none;
+  padding: 0 20px;
+  border-right: 1px solid #ddd;
+  font-weight: bold;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-submit-btn {
+  background-color: var(--mau-green);
+  color: var(--mau-gold);
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- Results Table Styles --- */
+.table-wrapper {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.mau-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mau-table th {
+  background-color: var(--mau-green);
+  color: var(--mau-gold);
+  padding: 15px;
+  text-align: left;
+}
+
+.mau-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.title-cell {
+  font-weight: bold;
+  color: var(--mau-green);
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-badge.available {
+  background-color: #d4fae5;
+  color: #065f46;
+}
+
+.status-badge.borrowed {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.isbn-text, .location-text {
+  color: #666;
+  font-size: 13px;
 }

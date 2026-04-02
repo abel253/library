@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // 1. የፋይል ስሞቹን በትክክል መጥራት (login 'l' ትንሽ መሆኗን አረጋግጥ)
+import Home from './components/Home'; 
 import Login from './components/login'; 
 import SignUp from './components/SignUp';
-import PublicSearch from './components/PublicSearch';
+import PublicSearch from './components/PublicSearch ';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // 2. ዳሽቦርዶችን በትክክለኛው ስም መጥራት
@@ -29,7 +30,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PublicSearch />} />
+        <Route path="/" element={<Home />} /> {/* መነሻ ገጽ */}
+        <Route path="/search" element={<PublicSearch />} /> {/* ፍለጋ ገጽ */}
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboards" element={

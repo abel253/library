@@ -1,0 +1,86 @@
+/* PublicSearch.css - ለህዝብ ፍለጋ ገጽ */
+.public-search {
+    min-height: 100vh;
+    background: #fef5e7;
+}
+
+.search-header {
+    background: linear-gradient(135deg, #2c5e2e, #1e401f);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.search-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.search-header p {
+    color: #d4af37;
+}
+
+.search-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.search-form select {
+    padding: 12px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 40px;
+    font-size: 14px;
+    background: white;
+    min-width: 120px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 40px;
+    font-size: 14px;
+}
+
+.search-form button {
+    background: linear-gradient(135deg, #d4af37, #b8941f);
+    color: #2c2c2c;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.results-table th {
+    background: #f0e6d2;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c5e2e;
+}
+
+.results-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.results-table tr:hover {
+    background: #fef9e6;
+}

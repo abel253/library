@@ -1,0 +1,62 @@
+/* ConfigureDueDate.css - የጊዜ ገደብ ማዋቀሪያ */
+.configure-due-date h2 {
+    color: #2c5e2e;
+    margin-bottom: 1rem;
+}
+
+.configure-due-date .info-text {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.due-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.due-table th {
+    background: #f0e6d2;
+    padding: 12px;
+    text-align: left;
+    color: #2c5e2e;
+}
+
+.due-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.due-table input {
+    width: 80px;
+    padding: 6px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.reset-btn {
+    background: none;
+    color: #d4af37;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #2c5e2e, #1e401f);
+    color: white;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.note-box {
+    background: #fef3c7;
+    border-left: 4px solid #d4af37;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+}

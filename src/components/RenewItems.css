@@ -1,0 +1,37 @@
+/* RenewItems.css - የማደስ ፎርም */
+.renew-items h2 {
+    color: #2c5e2e;
+    margin-bottom: 1.5rem;
+}
+
+.renew-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.renew-table th {
+    background: #f0e6d2;
+    padding: 12px;
+    text-align: left;
+    color: #2c5e2e;
+}
+
+.renew-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.renew-btn {
+    background: linear-gradient(135deg, #d4af37, #b8941f);
+    color: #2c2c2c;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.renewed-badge {
+    color: #10b981;
+    font-weight: 600;
+}

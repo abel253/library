@@ -1,0 +1,137 @@
+/* Login.css - የመግቢያ ገጽ ስታይል */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e401f 0%, #2c5e2e 50%, #d4af37 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="rgba(255,215,0,0.05)" d="M20,20 L80,20 L50,80 Z"/><circle cx="50" cy="40" r="8" fill="rgba(255,215,0,0.03)"/></svg>');
+    background-repeat: repeat;
+    pointer-events: none;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    color: #2c5e2e;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-header h3 {
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.login-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, #2c5e2e);
+    margin: 16px auto;
+    border-radius: 3px;
+}
+
+.login-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e8e0d0;
+    border-radius: 16px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #2c5e2e, #1e401f);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(44, 94, 46, 0.3);
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    border-left: 4px solid #dc2626;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    color: #b8941f;
+    text-decoration: underline;
+}

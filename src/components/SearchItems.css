@@ -1,0 +1,65 @@
+/* SearchItems.css - የፍለጋ አካላት */
+.search-items {
+    padding: 1rem;
+}
+
+.search-items h2 {
+    color: #2c5e2e;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.search-box select {
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: white;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.search-box button {
+    background: linear-gradient(135deg, #2c5e2e, #1e401f);
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.results-header {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #4b5563;
+}
+
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.item-table th {
+    background: #f0e6d2;
+    padding: 12px;
+    text-align: left;
+    color: #2c5e2e;
+    font-weight: 600;
+}
+
+.item-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}

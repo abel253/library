@@ -1,0 +1,53 @@
+/* ChangeUserType.css - የተጠቃሚ አይነት መቀየሪያ */
+.change-user-type h2 {
+    color: #2c5e2e;
+    margin-bottom: 1rem;
+}
+
+.user-search {
+    margin-bottom: 1.5rem;
+}
+
+.user-search input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 40px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th {
+    background: #f0e6d2;
+    padding: 12px;
+    text-align: left;
+    color: #2c5e2e;
+}
+
+.user-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.user-table select {
+    padding: 6px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.save-type-btn {
+    background: #2c5e2e;
+    color: white;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.no-change {
+    color: #9ca3af;
+}

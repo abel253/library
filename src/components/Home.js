@@ -1,90 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
-  return (
-    <div className="home-page">
-      {/* 1. Navigation Bar */}
-      <nav className="home-nav">
-        <div className="nav-container">
-          <div className="logo-section">
-            <div className="mau-logo">MAU</div>
-            <div className="logo-text">
-              <span className="uni-title">Mekdela Amba University</span>
-              <span className="lib-subtitle">Digital Library System</span>
-            </div>
-          </div>
-          <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/search">Search Catalog</Link>
-            <Link to="/login" className="login-link">Sign In</Link>
-            <Link to="/signup" className="signup-btn">Get Started</Link>
-          </div>
-        </div>
-      </nav>
+   const [stats, setStats] = useState({ students: 0, books: 0 });
 
-      {/* 2. Hero Section */}
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await fetch('http://localhost/library/get_stats.php');
+        const data = await response.json();
+        
+        setStats({
+          students: data.studentCount,
+          books: data.bookCount
+        });
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchStats();
+  }, []);
+
+  return (
+    <div >
+      {/* 1. MODERN HERO SECTION */}
       <header className="home-hero">
+        <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="animate-fade-in">Knowledge is the Gateway to the Future</h1>
-          <p>Welcome to the official library circulation system of Mekdela Amba University. Explore, borrow, and learn with ease.</p>
-          <div className="hero-btns">
-            <Link to="/search" className="main-btn">Search Books</Link>
-            <Link to="/signup" className="secondary-btn">Create Account</Link>
+          <h1 className="animate-reveal">
+            Knowledge is the <br/> 
+            <span className="gold-text">Gateway to the Future</span>
+          </h1>
+          <p className="animate-fade-in">
+            The official heart of academic excellence at Mekdela Amba University. 
+            Explore thousands of resources with ease, precision, and global access.
+          </p>
+          <div className="hero-btns animate-fade-in">
+        <Link to="/public-search" className="main-btn">Explore Books Now</Link>
+            
+            <Link to="/services" className="secondary-btn">Explore Services</Link>
           </div>
         </div>
       </header>
 
-      {/* 3. Quick Stats Section */}
-      <section className="stats-section">
+      {/* 2. FLOATING STATS SECTION */}
+      <section className="stats-container">
         <div className="stat-card">
-          <h3>4,260+</h3>
-          <p>Total Books</p>
+          <div className="stat-icon">📚</div>
+          <div className="stat-info">
+            <h3>{stats.books}+</h3>
+            <p>Academic Books</p>
+          </div>
+        </div>
+        <div className="stat-card gold-accent">
+          <div className="stat-icon">🎓</div>
+          <div className="stat-info">
+            <h3><h3>{stats.students}+</h3> </h3>
+            <p>Active Students</p>
+          </div>
         </div>
         <div className="stat-card">
-          <h3>1,500+</h3>
-          <p>Active Members</p>
-        </div>
-        <div className="stat-card">
-          <h3>24/7</h3>
-          <p>Digital Access</p>
+          <div className="stat-icon">🌐</div>
+          <div className="stat-info">
+            <h3>24/7</h3>
+            <p>Digital Access</p>
+          </div>
         </div>
       </section>
 
-      {/* 4. Services Section */}
+      {/* 3. PREMIUM SERVICES SECTION */}
       <section className="services-section">
-        <h2>Our Services</h2>
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="icon">📚</div>
-            <h3>Book Borrowing</h3>
-            <p>Easy checkout and return system for all academic books.</p>
-          </div>
-          <div className="service-card">
-            <div className="icon">🔄</div>
-            <h3>Online Renewal</h3>
-            <p>Renew your borrowed items from the comfort of your home.</p>
-          </div>
-          <div className="service-card">
-            <div className="icon">🖥️</div>
-            <h3>E-Resources</h3>
-            <p>Access journals, research papers, and digital archives.</p>
-          </div>
+        <div className="section-header">
+            <span className="badge">Our Services</span>
+            <h2>Digital & Physical Support</h2>
+            <div className="underline"></div>
         </div>
-      </section>
+          <div className="phys-section-title">
+            <h2>The Borrowing Journey</h2>
+            <p>From finding the shelf to the circulation desk.</p>
+          </div>
+          
+          <div className="journey-grid">
+            <div className="journey-card">
+              <div className="j-number">01</div>
+              <div className="j-icon">📍</div>
+              <h4>Locate on Shelf</h4>
+              <p>Find the book's <strong>Shelf Number</strong> from our search terminals. Use the floor guide below to find the exact row.</p>
+            </div>
 
-      {/* 5. Footer */}
-      <footer className="home-footer">
-        <div className="footer-content">
-          <p>&copy; 2024 Mekdela Amba University - Library Management System</p>
-          <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
-            <a href="#">MAU Website</a>
+            <div className="journey-card">
+              <div className="j-number">02</div>
+              <div className="j-icon">🎟️</div>
+              <h4>Present MAU ID</h4>
+              <p>Take the book to the <strong>Circulation Desk</strong>. You must present your valid University Student/Staff ID card.</p>
+            </div>
+
+            <div className="journey-card">
+              <div className="j-number">03</div>
+              <div className="j-icon">✍️</div>
+              <h4>Physical Signature</h4>
+              <p>The librarian will scan the book and may require a physical signature in the circulation register for verification.</p>
+            </div>
           </div>
-        </div>
-      </footer>
+         
+        </section>
+       
     </div>
   );
 };

@@ -34,7 +34,7 @@ h1, h2, h3 {
 
 /* --- Layout Structure --- */
 .container {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -145,7 +145,6 @@ button[type="submit"]:hover, .btn-primary:hover {
 
 .main-content {
     flex: 1;
-    padding: 40px;
     background-color: #f8f9fa;
 }
 
@@ -219,4 +218,9 @@ tr:hover {
     .signup-card, .login-card {
         padding: 20px;
     }
+}
+/* App.css */
+.main-content {
+    padding-top: 80px; /* የNavbarሩን ቁመት ያህል ቦታ ይተዋል */
+    min-height: calc(100vh - 160px); /* ፉተር እና ናቭባርን ቀንሶ ቀሪውን ቦታ ይይዛል */
 }

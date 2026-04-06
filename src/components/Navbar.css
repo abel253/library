@@ -1,73 +1,123 @@
-/* Navbar.css - የላይኛው ሜኑ ስታይል */
-.navbar {
-    background: linear-gradient(135deg, #1e401f 0%, #2c5e2e 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: sticky;
+.global-nav {
+    position: fixed;
     top: 0;
-    z-index: 1000;
-    padding: 0.75rem 2rem;
+    width: 100%;
+    z-index: 2000;
+    background:blueviolet;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 0;
+    transition: all 0.4s ease;
 }
 
-.navbar-container {
-    max-width: 1400px;
+.nav-container {
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.navbar-logo {
+/* Logo Styling */
+.nav-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+    text-decoration: none;
+    margin-left: 10px;
 }
 
-.navbar-logo h1 {
-    font-size: 1.5rem;
+.brand-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 60%;
+    border: 2px solid var(--mau-gold);
+    box-shadow: 0 0 15px var(--mau-gold-glow);
+}
+
+.brand-text .uni-name {
+    display: block;
     font-weight: 800;
-    background: linear-gradient(135deg, #d4af37, #f3d572);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: white;
+    font-size: 1.3rem;
     letter-spacing: -0.5px;
 }
 
-.navbar-logo-icon {
-    font-size: 28px;
+.brand-text .system-name {
+    font-size: 0.75rem;
+    color: var(--mau-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.navbar-user {
+/* Navigation Links */
+.nav-links {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    list-style: none;
+    gap: 30px;
 }
 
-.user-welcome {
+.nav-links a {
+    text-decoration: none;
     color: white;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 0.95rem;
+    position: relative;
+    transition: 0.3s;
 }
 
-.user-type {
-    background: rgba(212, 175, 55, 0.2);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    color: #d4af37;
-    font-weight: 600;
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--mau-gold);
+    transition: 0.3s;
+    transform: translateX(-50%);
+    border-radius: 10px;
 }
 
-.logout-btn {
-    background: linear-gradient(135deg, #8b3a3a, #6b2e2e);
-    color: white;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.nav-links a:hover { color: var(--mau-gold); }
+.nav-links a:hover::after { width: 100%; }
+
+
+
+/* 1. የሊንኮቹ መቀመጫ (Container) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 35px; /* በመካከለኛው ሜኑ ላይ ያለውን ያህል ክፍተት ስጠው */
+  margin-left: 20px;
 }
 
-.logout-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 58, 58, 0.4);
+/* 2. ሁለቱንም ሊንኮች እንደ መደበኛ ሊንክ ለማድረግ */
+.login-btn, .signup-btn {
+  /* ሁሉንም የButton ስታይል ማጥፊያ */
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  
+  /* መደበኛ የሜኑ ስታይል */
+  color: white !important; /* ልክ እንደ Home እና About Us ነጭ እንዲሆኑ */
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 20px; /* የመካከለኛውን ሜኑ የፎንት መጠን ያህል */
+  font-weight: 700; /* ደመቅ እንዲሉ (Bold) */
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
 }
+
+/* 3. ማውዙ ሲያርፍባቸው (Hover) የሚኖረው ለውጥ */
+.login-btn:hover, .signup-btn:hover {
+  color: #c5a044 !important; /* እንደ ምርጫህ፡ ወደ ወርቃማ እንዲቀየሩ ካልፈለግክ ግራጫ ወይም ነጭ አድርገው */
+  transform: none !important; /* ምንም አይነት እንቅስቃሴ እንዳይኖረው */
+}
+
+/* 4. "Get Started" ትንሽ ለየት እንዲል ከፈለግክ ብቻ (አማራጭ) */
+/* እንዲያውም እንደ ሌሎች ሊንኮች እንዲሆን ይሄን ዝለለው ወይም ተወው */

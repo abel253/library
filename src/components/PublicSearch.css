@@ -1,214 +1,244 @@
-/* --- Mekdela Amba Colors --- */
-:root {
-  --mau-green: #1e401f;
-  --mau-gold: #d4af37;
-  --mau-gold-hover: #b8941f;
-}
 
-/* --- Navbar Styles --- */
-.mau-navbar {
-  background-color: var(--mau-green);
-  padding: 10px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-placeholder {
-  background-color: var(--mau-gold);
-  color: white;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.uni-name {
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.lib-name {
-  color: var(--mau-gold);
-  font-size: 14px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-item {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-btn {
-  padding: 8px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.nav-btn.login {
-  color: var(--mau-gold);
-  border: 1px solid var(--mau-gold);
-}
-
-.nav-btn.signup {
-  background-color: var(--mau-gold);
-  color: var(--mau-green);
-}
-
-.nav-btn.signup:hover {
-  background-color: var(--mau-gold-hover);
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f4f7f6;
 }
 
 /* --- Hero Section --- */
-.library-hero {
-  background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 450px;
-  position: relative;
+.library-heros {
+    height: 70vh;
+    background: url('../assets/library12.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-overlay {
-  background-color: rgba(30, 64, 31, 0.75); /* Dark green tint */
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    padding: 20px;
+    animation: fadeInUp 1s ease-out;
+    border: #f4f7f6;
+    border-radius: 400px;
+}
+
+.search-badge {
+    background: rgba(197, 160, 68, 0.2);
+    color: #c5a044;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .hero-content h1 {
-  color: var(--mau-gold);
-  font-size: 42px;
-  margin-bottom: 10px;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.gold-text {
+    color: #c5a044;
 }
 
 .hero-content p {
-  color: white;
-  font-size: 18px;
-  margin-bottom: 30px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
 }
 
-/* --- Hero Search Box --- */
-.hero-search-form {
-  background: white;
-  padding: 10px;
-  border-radius: 50px;
-  display: flex;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+/* --- The Modern Search Bar --- */
+.hero-search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: url('../assets/library9.avif');
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+    padding: 50px 40px;
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 440px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeInScale 0.6s ease-out;
 }
 
-.search-select {
-  border: none;
-  padding: 0 20px;
-  border-right: 1px solid #ddd;
-  font-weight: bold;
-  border-radius: 50px 0 0 50px;
-  outline: none;
+.search-bar-wrapper {
+    display: flex;
+    background: white;
+    padding: 10px;
+    border-radius: 100px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    align-items: center;
+    transition: 0.3s;
 }
 
-.search-input {
-  flex: 1;
-  border: none;
-  padding: 15px 20px;
-  font-size: 16px;
-  outline: none;
+.search-bar-wrapper:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.search-submit-btn {
-  background-color: var(--mau-green);
-  color: var(--mau-gold);
-  border: none;
-  padding: 10px 30px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
+.search-select-modern {
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0a301e;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    min-width: 150px;
 }
 
-/* --- Results Table Styles --- */
-.table-wrapper {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+.input-divider {
+    width: 2px;
+    height: 30px;
+    background: #eee;
 }
 
-.mau-table {
-  width: 100%;
-  border-collapse: collapse;
+.search-input-modern {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    outline: none;
+    color: #333;
 }
 
-.mau-table th {
-  background-color: var(--mau-green);
-  color: var(--mau-gold);
-  padding: 15px;
-  text-align: left;
+.search-btn-modern {
+    background: #c5a044;
+    color: #0a301e;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
 }
 
-.mau-table td {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
+.search-btn-modern:hover {
+    background: #0a301e;
+    color: #c5a044;
 }
 
-.title-cell {
-  font-weight: bold;
-  color: var(--mau-green);
+/* --- Results Section --- */
+.results-container {
+    max-width: 1200px;
+    margin: -60px auto 100px;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
 }
 
-.status-badge {
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
+.search-results-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
-.status-badge.available {
-  background-color: #d4fae5;
-  color: #065f46;
+.results-header {
+    background: #f8fbf9;
+    padding: 25px 40px;
+    border-bottom: 1px solid #edf2ef;
 }
 
-.status-badge.borrowed {
-  background-color: #fee2e2;
-  color: #991b1b;
+.results-header h3 {
+    margin: 0;
+    color: #0a301e;
+    font-weight: 700;
 }
 
-.isbn-text, .location-text {
-  color: #666;
-  font-size: 13px;
+/* --- Table Styling --- */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modern-table th {
+    text-align: left;
+    padding: 20px 40px;
+    background: #fcfcfc;
+    color: #888;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modern-table td {
+    padding: 25px 40px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.title-bold {
+    font-weight: 700;
+    color: #0a301e;
+    font-size: 1.1rem;
+}
+
+.status-pill {
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.is-available {
+    background: #e6f7ef;
+    color: #28a745;
+}
+
+.is-borrowed {
+    background: #fbe9e9;
+    color: #dc3545;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-bar-wrapper {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    .search-btn-modern, .search-input-modern, .search-select-modern {
+        width: 100%;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
 }

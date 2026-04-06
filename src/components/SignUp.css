@@ -1,89 +1,169 @@
-/* SignUp.css ወይም App.css ውስጥ የሚጨመር */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
 
-/* የገጹ ሙሉ ገጽታ */
 .signup-container {
-    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    
+    /* 1. ምስሉን እና ቀለሙን እዚህ ላይ እናዋህዳለን (Linear Gradient + URL) */
+    background: linear-gradient(rgba(2, 44, 34, 0.8), rgba(2, 44, 34, 0.9)), 
+                url('../assets/library1.avif'); 
+                
+    /* 2. ምስሉ ሙሉ ገጹን እንዲሸፍን (Properties) */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.signup-card {
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 440px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.uni-logo-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.signup-header h2 {
+    color: #064e3b;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.signup-header p {
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #f3f4f6;
+    border-radius: 14px;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    background: #f9fafb;
+    color: #111827;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c29944; /* Premium Gold color */
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(194, 153, 68, 0.15);
+}
+
+/* ERROR STATE */
+.form-group input.input-error {
+    border-color: #ef4444;
+    background: #fff1f1;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
 }
 
-/* የፎርሙ ሳጥን */
-.signup-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.submit-btn {
     width: 100%;
-    max-width: 450px;
+    padding: 16px;
+    /* MAU Gold Palette */
+    background: linear-gradient(135deg, #d4a017 0%, #a67c00 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px -5px rgba(166, 124, 0, 0.4);
 }
 
-/* ርዕስ */
-.signup-card h2 {
-    color: #1f2937;
-    margin-bottom: 1.5rem;
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(166, 124, 0, 0.5);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+.alert-box {
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
     text-align: center;
 }
 
-/* ኢንፑት እና ሴሌክት ሳጥኖች */
-input, select {
-    width: 100%;
-    padding: 10px 12px;
-    margin-top: 5px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+.alert-error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.alert-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    color: #6b7280;
 }
 
-input:focus, select:focus {
-    border-color: #059669; /* Green color */
-    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
-    outline: none;
+.footer-text a {
+    color: #064e3b;
+    text-decoration: none;
+    font-weight: 700;
 }
 
-/* የተቆለፈ (Disabled) ሴሌክት */
-select:disabled {
-    background-color: #f9fafb;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* የሲን አፕ (Submit) በተን */
-button[type="submit"] {
-    background-color: #059669;
-    color: white;
-    font-weight: 600;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 1rem;
-    transition: background 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #047857;
-}
-
-/* የስህተት እና የስኬት መልእክቶች */
-.error-msg {
-    background-color: #fee2e2;
-    color: #b91c1c;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 13px;
-}
-
-.success-msg {
-    background-color: #d1fae5;
-    color: #065f46;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 13px;
+.footer-text a:hover {
+    text-decoration: underline;
 }

@@ -23,27 +23,7 @@ const PublicSearch = () => {
 
   return (
     <div className="public-search-page">
-      {/* --- 1. Navigation Bar --- */}
-      <nav className="mau-navbar">
-        <div className="nav-container">
-          <div className="nav-logo">
-            {/* እዚህ ጋር የMAU ሎጎ ምስል (logo.png) ካለህ src ውስጥ አስገባው */}
-            <div className="logo-placeholder">MAU</div>
-            <div className="logo-text">
-              <span className="uni-name">Mekdela Amba University</span>
-              <span className="lib-name">Digital Library System</span>
-            </div>
-          </div>
-          <div className="nav-links">
-            <Link to="/" className="nav-item">Home</Link>
-            <Link to="/login" className="nav-btn login">Login</Link>
-            <Link to="/signup" className="nav-btn signup">Sign Up</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* --- 2. Hero Section with Library Image --- */}
-      <header className="library-hero">
+      <header className="library-heros">
         <div className="hero-overlay">
           <div className="hero-content">
             <h1>Find Your Next Great Read</h1>
@@ -51,7 +31,7 @@ const PublicSearch = () => {
             
             {/* Search Box inside Hero */}
             <div className="hero-search-container">
-              <form onSubmit={handleSearch} className="hero-search-form">
+              <form onSubmit={handleSearch} className="hero-search-form" >
                 <select 
                   value={searchType} 
                   onChange={(e) => setSearchType(e.target.value)}
@@ -60,14 +40,15 @@ const PublicSearch = () => {
                   <option value="title">Title</option>
                   <option value="author">Author</option>
                   <option value="isbn">ISBN</option>
-                </select>
+                </select> <br/><br/>
                 <input 
                   type="text" 
                   placeholder="Search by book title, author, or ISBN..." 
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="search-input"
-                />
+                   required
+                /><br/><br/>
                 <button type="submit" className="search-submit-btn">Search</button>
               </form>
             </div>

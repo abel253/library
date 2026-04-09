@@ -5,7 +5,7 @@
     z-index: 2000;
     background:blueviolet;
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    --webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding: 10px 0;
     transition: all 0.4s ease;
@@ -28,8 +28,8 @@
 }
 
 .brand-logo {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 60%;
     border: 2px solid var(--mau-gold);
     box-shadow: 0 0 15px var(--mau-gold-glow);
@@ -39,12 +39,12 @@
     display: block;
     font-weight: 800;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     letter-spacing: -0.5px;
 }
 
 .brand-text .system-name {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: var(--mau-gold);
     font-weight: 700;
     text-transform: uppercase;

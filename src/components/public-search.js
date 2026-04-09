@@ -8,7 +8,6 @@ const PublicSearch = () => {
   const [results, setResults] = useState([]);
   const [searched, setSearched] = useState(false);
 
-  // ከመረጃ ቋቱ (Database) ዳታ ለማምጣት የሚረዳ ፋንክሽን
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
@@ -29,7 +28,6 @@ const PublicSearch = () => {
             <h1>Find Your Next Great Read</h1>
             <p>Access thousands of academic resources, books, and journals from anywhere.</p>
             
-            {/* Search Box inside Hero */}
             <div className="hero-search-container">
               <form onSubmit={handleSearch} className="hero-search-form" >
                 <select 
@@ -49,14 +47,13 @@ const PublicSearch = () => {
                   className="search-input"
                    required
                 /><br/><br/>
-                <button type="submit" className="search-submit-btn">Search</button>
+                <button type="submit" className="search-submit-btn">Search Now</button>
               </form>
             </div>
           </div>
         </div>
       </header>
 
-      {/* --- 3. Results Section --- */}
       <main className="container">
         {searched && (
           <div className="search-results-section">
@@ -73,6 +70,9 @@ const PublicSearch = () => {
                       <th>ISBN</th>
                       <th>Status</th>
                       <th>Location</th>
+                      {/* አዲስ የተጨመሩ Header */}
+                      <th>Shelf No.</th>
+                      <th>Sub-Shelf</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -87,6 +87,9 @@ const PublicSearch = () => {
                           </span>
                         </td>
                         <td className="location-text">{item.location}</td>
+                        {/* አዲስ የተጨመሩ ዳታዎች */}
+                        <td className="shelf-text">{item.shelf_number || 'N/A'}</td>
+                        <td className="shelf-text">{item.sub_shelf_number || 'N/A'}</td>
                       </tr>
                     ))}
                   </tbody>
